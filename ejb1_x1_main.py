@@ -45,7 +45,7 @@ filter = "a", este debe devolver 19, ya que en la segunda oración "¿Cómo est�
 el valor pasado como filtro y la oración tiene una longitud de la cadena de texto más larga. 
 """
 # Add your imports here
-from util_package import is_newline, is_space, remove_punctuation_marks
+from util_package import is_newline, is_space, remove_punctuation_marks, TEXT
 
 def find_largest_word(text):
     # Write here your code
