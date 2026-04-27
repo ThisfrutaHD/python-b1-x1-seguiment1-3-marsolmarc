@@ -1,7 +1,7 @@
 import string
 # Do not change the following lines
 
-__all__ = ["is_newline", "is_space", "remove_punctuation_marks"]
+__all__ = ["is_newline", "is_space", "remove_punctuation_marks", "TEXT"]
 
 TEXT = '''Are the following lines palindromes?
 A man, a plan, a canal, Panama.
