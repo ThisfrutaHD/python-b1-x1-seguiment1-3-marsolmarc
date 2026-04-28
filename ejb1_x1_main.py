@@ -48,8 +48,20 @@ el valor pasado como filtro y la oración tiene una longitud de la cadena de tex
 from util_package import is_newline, is_space, remove_punctuation_marks, TEXT
 
 def find_largest_word(text):
-    # Write here your code
-    pass                
+    max_word = ""
+    current_word = ""
+
+    for letter in text + " ":
+        if is_newline(letter) or is_space(letter):
+            clean_word = remove_punctuation_marks(current_word)
+            if len(clean_word) > len(max_word):
+                max_word = clean_word
+            current_word = ""
+        else:
+            current_word += letter
+
+    return max_word
+
 
 def is_palindrome_word(word):
     # Write here your code
