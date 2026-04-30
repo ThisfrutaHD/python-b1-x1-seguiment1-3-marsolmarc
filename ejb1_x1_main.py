@@ -51,14 +51,14 @@ def find_largest_word(text):
     max_word = ""
     current_word = ""
 
-    for letter in text + " ":
-        if is_newline(letter) or is_space(letter):
+    for char in text + " ":
+        if is_newline(char) or is_space(char):
             clean_word = remove_punctuation_marks(current_word)
             if len(clean_word) > len(max_word):
                 max_word = clean_word
             current_word = ""
         else:
-            current_word += letter
+            current_word += char
 
     return max_word
 
@@ -76,14 +76,14 @@ def count_palindrome_words(text):
     current_word = ""
     count = 0
 
-    for letter in text + " ":
-        if is_newline(letter) or is_space(letter):
+    for char in text + " ":
+        if is_newline(char) or is_space(char):
             clean_word = remove_punctuation_marks(current_word)
             if current_word != "" and is_palindrome_word(clean_word):
                 count += 1
             current_word = ""
         else:
-            current_word += letter
+            current_word += char
     return count
 
 
@@ -92,8 +92,8 @@ def find_size_largest_sentence(text, filter):
     max_length_sentence = 0
     found = False
 
-    for letter in text + "\n":
-        if is_newline(letter):
+    for char in text + "\n":
+        if is_newline(char):
             if filter in sentence:
                 found = True
                 length_sentence = len(sentence)
@@ -101,7 +101,7 @@ def find_size_largest_sentence(text, filter):
                    max_length_sentence = length_sentence
             sentence = ""
         else:
-            sentence += letter
+            sentence += char
     if not found:
         raise ValueError("No sentence contains the filter")
     return max_length_sentence
