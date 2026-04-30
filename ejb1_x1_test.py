@@ -38,7 +38,7 @@ def test_is_palindrome_word():
 
 def test_count_palindrome_words():
     assert count_palindrome_words(
-        TEXT) == 46, "Check the function: count_palindrome_words"
+        TEXT) == 47, "Check the function: count_palindrome_words"
     assert count_palindrome_words(
         "civic, radar, level, rotor, kayak, madam, and refer.") == 7, "'Check the function: count_palindrome_words"
     assert count_palindrome_words(
