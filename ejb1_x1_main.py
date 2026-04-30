@@ -64,19 +64,47 @@ def find_largest_word(text):
 
 
 def is_palindrome_word(word):
-    # Write here your code
-    pass
+    word = remove_punctuation_marks(word).lower()
+
+    if len(word) <= 1:
+        return True
+    else:
+        return word[0] == word[-1] and is_palindrome_word(word[1:-1])
     
 
-
 def count_palindrome_words(text):
-    # Write here your code
-    pass
+    current_word = ""
+    count = 0
+
+    for letter in text + " ":
+        if is_newline(letter) or is_space(letter):
+            clean_word = remove_punctuation_marks(current_word)
+            if current_word != "" and is_palindrome_word(clean_word):
+                count += 1
+            current_word = ""
+        else:
+            current_word += letter
+    return count
 
 
 def find_size_largest_sentence(text, filter):
-    # Write here your code
-    pass
+    sentence = ""
+    max_length_sentence = 0
+    found = False
+
+    for letter in text + "\n":
+        if is_newline(letter):
+            if filter in sentence:
+                found = True
+                length_sentence = len(sentence)
+                if length_sentence > max_length_sentence:
+                   max_length_sentence = length_sentence
+            sentence = ""
+        else:
+            sentence += letter
+    if not found:
+        raise ValueError("No sentence contains the filter")
+    return max_length_sentence
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
